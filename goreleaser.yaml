@@ -18,7 +18,7 @@ builds:
       - arm64
     ldflags:
       - -s -w
-      - -X github.com/wallanaq/oidc-cli/v2/cmd/oidc/version.version={{ .Version }}
+      - -X github.com/wallanaq/oidc-cli/v2/internal/version.version={{ .Version }}
 
 archives:
   - formats: [tar.gz]
