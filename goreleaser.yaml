@@ -1,0 +1,35 @@
+project_name: oidc-cli
+
+before:
+  hooks:
+    - go mod tidy
+
+builds:
+  - id: oidc-cli
+    main: ./cmd/oidc/main.go
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+      - darwin
+      - windows
+    goarch:
+      - amd64
+      - arm64
+    ldflags:
+      - -s -w
+      - -X github.com/wallanaq/oidc-cli/v2/cmd/oidc/version.version={{ .Version }}
+
+archives:
+  - formats: [tar.gz]
+    name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+    format_overrides:
+      - goos: windows
+        formats: [zip]
+
+checksum:
+  name_template: "checksum.txt"
+
+release:
+  draft: false
+  prerelease: auto
