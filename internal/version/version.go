@@ -8,7 +8,7 @@ import (
 
 var (
 	version  = "dev"
-	template = "oidc-cli version %s (%s/%s)\n"
+	template = "oidc-cli version %s (%s/%s)"
 )
 
 func String() string {
