@@ -4,6 +4,7 @@ import (
 	"log/slog"
 
 	"github.com/spf13/cobra"
+	"github.com/wallanaq/oidc-cli/v2/cmd/oidc/updatecheck"
 	"github.com/wallanaq/oidc-cli/v2/cmd/oidc/version"
 )
 
@@ -28,6 +29,7 @@ func NewRootCmd() *cobra.Command {
 	rootCmd.CompletionOptions.DisableDefaultCmd = true
 
 	rootCmd.AddCommand(version.NewVersionCmd())
+	rootCmd.AddCommand(updatecheck.NewUpdateCheckCmd())
 
 	rootCmd.PersistentFlags().BoolVarP(&debugMode, "debug", "d", false, "Enable debug mode")
 

@@ -1,20 +1,19 @@
 package version
 
 import (
-	"context"
 	"fmt"
 	"runtime"
 )
 
 var (
-	version  = "dev"
+	version  = "v0.0.0"
 	template = "oidc-cli version %s (%s/%s)"
 )
 
-func String() string {
-	return fmt.Sprintf(template, version, runtime.GOOS, runtime.GOARCH)
+func Current() string {
+	return version
 }
 
-func CheckForUpdate(ctx context.Context) (bool, error) {
-	return false, nil
+func String() string {
+	return fmt.Sprintf(template, version, runtime.GOOS, runtime.GOARCH)
 }
